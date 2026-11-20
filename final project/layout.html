@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+            margin: 0;
+            background-color: #ece4e4;
+        }
+
+        h2,
+        h3 {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+            color: #a84aa5;
+        }
+
+        header {
+            color: white;
+            padding: 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #da89c5, #ac4ca4);
+            font-family: 'Pacifico', cursive;
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        nav {
+            background-color: #ac4ca4;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            border-radius: 20px;
+            padding: 6px 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: white;
+            color: #a84aa5;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+            align-items: stretch;
+        }
+
+        .card {
+            width: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-sizing: border-box;
+            box-shadow: 0 6px 15px rgba(172, 76, 164, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .about-card {
+            flex: 0.9;
+        }
+
+        .dream-card {
+            flex: 0.8;
+        }
+
+        .bottom-container {
+            display: grid;
+            grid-template-columns: 0.8fr 2.3fr;
+            gap: 30px;
+            padding: 30px;
+            align-items: start; 
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(172, 76, 164, 0.35);
+        }
+        footer {
+            background-color: #ac4ca4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .project-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To My Website</h1>
+    </header>
+    <nav>
+        <a href="./table.html">Home</a>
+        <a href="./kontrol-lampu.html">Project</a>
+        <a href="./layout.html">Back</a>
+    </nav>
+    <div class="container">
+        <div class="card about-card">
+            <img src="../suami.jpg" alt="">
+            <h2>About Me</h2>
+            <p>Hi! Let me introduce myself. My name is Salsabila Qonitatun Nasywa. I was born in Demak on 9 June, 2011,
+                and I currently live in Kalitengah. I am currently studying at SMK Bina Nusantara.
+                When it comes to hobbies, I really enjoy watching things, especially Korean dramas and K-Pop content.
+                I'm also a K-Pop fan who loves keeping up with the latest news and updates about the K-Pop world.
+                One of my favorite groups is NCT. Out of all the members, my favorites are Jaemin and Yushi. They both
+                have their own charms that make me love following their activities. I enjoy listening to NCT's songs,
+                watching their music videos, keeping up with their latest updates, and of course, watching their various
+                contents, from vlogs and entertainment shows to funny moments between the members.
+                One of my biggest wishes as an NCTzen is to meet NCT in person, especially Jaemin and Yushi. It would be
+                such an amazing experience to see them up close and watch their performances live someday. Hopefully,
+                that dream will come true one day!
+                I could say that NCT and my two biases have become one of the little sources of happiness in my everyday
+                life.
+                That's a little introduction about me. Thank you for reading my introduction!
+            </p>
+        </div>
+
+        <div class="card dream-card">
+            <img src="../seoul.jpg" alt="Seoul South Korea">
+            <h2>Dream City</h2>
+            <h4>Seoul, South Korea</h4>
+            <p>Seoul is the capital and largest city of South Korea. Seoul is one of my dream destinations, and I really
+                hope to visit it someday. This city has a beautiful combination of traditional culture and modern life,
+                which makes it so interesting.
+                Seoul is known as the center of government, business, education, technology, and the entertainment
+                industry in South Korea. It has many famous tourist attractions, such as N Seoul Tower, Gyeongbokgung
+                Palace, Myeongdong, and Hongdae.
+                Besides that, Seoul is also the center of the K-Pop and K-Drama industries. Many famous entertainment
+                companies, such as SM Entertainment, JYP Entertainment, and HYBE, are located in this city. As a K-Pop
+                fan, I really want to experience the atmosphere of Seoul, visit interesting places, try Korean food, and
+                hopefully meet my favorite idols there someday.
+            </p>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="card">
+            <h3>My Sosial Media</h3>
+            <ul>
+                <li><a href="https://www.instagram.com/">Ig: @njeaaa</a></li>
+                <li><a href="https://www.tiktok.com/id-ID/">tiktok: @njeaaluv</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Project Kontrol Lampu</h3>
+
+            <iframe src="./kontrol-lampu.html" class="project-frame" title="Project Kontrol Lampu">
+            </iframe>
+
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2026 ssbllaa</p>
+    </footer>
+
+
+</body>
+
+</html>

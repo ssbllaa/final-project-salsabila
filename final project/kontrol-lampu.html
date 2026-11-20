@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrol Lampu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        h1 {
+            font-family:'Pacifico', cursive;
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+        }
+        body {
+            background-color: rgb(224, 178, 205);
+            font-family:'Fredoka', sans-serif;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 290px);
+            gap: 30px;
+            justify-content: center;
+        }
+        .nav {
+            text-align: center;
+            margin: 20px;
+        }
+        .nav button {
+            padding: 10px 24px;
+            font-size: 16px;
+            font-family: 'Fredoka', sans-serif;
+            border-radius: 25px;
+            background: white;
+            color: #a84aa5;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            transition: 0.2s;
+        }
+        .nav button:hover {
+            background: #a84aa5;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .lampu {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            box-sizing: border-box;
+
+        }
+        .bg-1 {
+            background-image: url(../pacar.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bg-2 {
+            background-image: url(../meng2.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bg-3 {
+            background-image: url(../meng.jpg) ;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bg-4 {
+            background-image:url(../suami.jpg) ;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .wadah-lampu {
+            box-sizing: border-box;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.4s;
+        }
+        .wadah-lampu:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(168, 74, 165, 0.4);
+        }
+        .lampu h4, .lampu p {
+            color: #ebd9eb;   
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Kontrol 4 Lampu Dengan JavaScript</h1>
+    <br>
+    <div class="nav">
+        <button onclick="location.href='table.html'">Home</button>
+        <button onclick="location.href='layout.html'">Layout</button>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="wadah-lampu">
+        <div class="lampu bg-1">
+            <img id="myImage1" src="../lampumati.jpg" alt="">
+             <h4 id="status1">Lampu Mati</h4>
+             <p id="timer1">00:05</p>
+            <button onclick="nyalakanLampu(1)">Nyalakan Lampu</button>
+         </div></div>
+        <div class="wadah-lampu">
+        <div class="lampu bg-2">
+            <img id="myImage2" src="../lampumati.jpg" alt="">
+             <h4 id="status2">Lampu Mati</h4>
+             <p id="timer2">00:05</p>
+            <button onclick="nyalakanLampu(2)">Nyalakan Lampu</button>
+        </div></div>
+         <div class="wadah-lampu">
+        <div class="lampu bg-3">
+            <img id="myImage3" src="../lampumati.jpg" alt="">
+            <h4 id="status3">Lampu Mati</h4>
+            <p id="timer3">00:05</p>
+            <button onclick="nyalakanLampu(3)">Nyalakan Lampu</button>
+        </div></div>
+         <div class="wadah-lampu">
+        <div class="lampu bg-4">
+            <img id="myImage4" src="../lampumati.jpg" alt="">
+            <h4 id="status4">Lampu Mati</h4>
+            <p id="timer4">00:05</p>
+            <button onclick="nyalakanLampu(4)">Nyalakan Lampu</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        let waktu = [5,5,5,5];
+        let interval = [null,null,null,null];
+
+        function nyalakanLampu(nomor) {
+            let i = nomor -1;
+
+            clearInterval(interval[i]);
+
+            document.getElementById("myImage" + nomor).src = "../lampuhidup.jpg";
+            document.getElementById("status" + nomor).innerText = "Lampu Menyala";
+
+            waktu[i] = 5;
+            document.getElementById("timer" + nomor).innerText = "00:05";
+
+            interval[i] = setInterval(function () {
+                waktu[i]--;
+
+                document.getElementById("timer" + nomor).innerText =
+                    "00:" + String(waktu[i]).padStart(2, "0");
+
+                    if (waktu[i] <= 0) {
+                        matikanLampu(nomor);
+                    }
+            }, 1000);
+        }
+
+        function matikanLampu(nomor) {
+            let i = nomor -1;
+
+            clearInterval(interval[i]);
+
+            document.getElementById("myImage" + nomor).src = "../lampumati.jpg";
+            document.getElementById("status" + nomor).innerText = "Lampu Mati";
+
+            waktu[i] = 5;
+            document.getElementById("timer" + nomor).innerText = "00:05";
+        }
+    </script>
+</body>
+</html>

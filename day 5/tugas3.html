@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran JaeJae</title>
+</head>
+<body>
+    <h2>Rating Restoran JaeJae</h2>
+
+    <label for="rating">Masukkan Rating:</label>
+    <input type="number" id="rating" placeholder="Masukkan Rating">
+    <button onclick="cekRating()">cek rating</button>
+
+    <p id="hasil"></p>
+    <script>
+        function cekRating() {
+          var rating = document.getElementById("rating").value;
+          var hasil = "";
+
+        if (rating >= 9) {
+            hasil = "Sangat Enak.";
+        } else if (rating >= 7) {
+            hasil = "Enak.";
+        } else if (rating >= 5) {
+            hasil = "Cukup Enak.";
+        } else if (rating >= 3) {
+            hasil = "Kurang Enak.";
+        } else {
+            hasil = "TIdak Enak.";
+        }
+
+        document.getElementById("hasil").innerHTML = hasil;
+    }
+    </script>
+</body>
+</html>
